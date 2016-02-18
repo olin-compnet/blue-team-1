@@ -3,11 +3,13 @@
 #
 from  SetPin import SetPin
 import time
+import sys
 
 def receiveblinks(RXpin,blinks=200,duration=.01):
     for i in range(blinks):
         time.sleep(duration)
-        print("{}".format("|" if RXpin.read_pin() else "."),end="")
+        print("{}".format("|" if RXpin.read_pin() else "."),end="\n")
+        sys.stdout.flush()
 
 if __name__ == "__main__":   
             
