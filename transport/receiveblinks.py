@@ -4,8 +4,9 @@
 from  SetPin import SetPin
 import time
 
-def receiveblinks(RXpin,blinks=1,duration=.25):
+def receiveblinks(RXpin,blinks=200,duration=.25):
     for i in range(blinks):
+    	time.sleep(duration)
         print("{}".format("|" if RXpin.read_pin() else "."),end="\n")
 
 if __name__ == "__main__":   
