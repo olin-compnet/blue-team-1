@@ -5,7 +5,7 @@ from  SetPin import SetPin
 import time
 import sys
 
-def receiveblinks(RXpin,blinks=100,duration=.01):
+def receiveblinks(RXpin,blinks=100,duration=(1/4)/10):
     for i in range(blinks):
         time.sleep(duration)
         print("{}".format("|" if RXpin.read_pin() else "."),end="")
