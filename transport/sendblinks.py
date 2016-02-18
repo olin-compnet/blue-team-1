@@ -4,7 +4,7 @@
 from SetPin import SetPin
 import time                                                                                                                                                                                                                                                                                                                                                                                                                                        
 
-def sendblinks(TXpin,blinks=30,duration=1/10):
+def sendblinks(TXpin,blinks=30,duration=1):
     for i in range(blinks):
             
         TXpin.turn_high()

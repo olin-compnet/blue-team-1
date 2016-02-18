@@ -6,7 +6,7 @@ def MorseTX(M):
     for W in M.split(" "):
         for L in W:
             for Dd in MorseCode[L]:
-                yield (1,0) if Dd == "." else (3,1)
+                yield (1,1) if Dd == "." else (1,3)
                 yield (0,1)
             yield(0,2)
         yield (0,4)
