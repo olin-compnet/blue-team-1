@@ -1,6 +1,5 @@
 # Module MorseTX
 from MorseCode import MorseCode
-from sendblinks import sendblinks
 
 
 def MorseTX(M):
@@ -12,8 +11,7 @@ def MorseTX(M):
             yield(0,2)
         yield (0,4)
     yield (0,8)
-
-
+    
 
 if __name__ == "__main__":
     print("AN ACE")

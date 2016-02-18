@@ -4,7 +4,7 @@
 from SetPin import SetPin
 import time                                                                                                                                                                                                                                                                                                                                                                                                                                        
 
-def sendblinks(TXpin,blinks=30,duration=1):
+def sendblinks(TXpin,blinks=30,duration=1/10):
     for i in range(blinks):
             
         TXpin.turn_high()
@@ -13,9 +13,5 @@ def sendblinks(TXpin,blinks=30,duration=1):
         time.sleep(duration)      
 
 if __name__ == "__main__":
-
-            
     with SetPin(15,"GPIO_22",direction="TX") as TXpin:
         sendblinks(TXpin)
-
-
