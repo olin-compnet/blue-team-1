@@ -6,7 +6,7 @@ import time
 
 def receiveblinks(RXpin,blinks=1,duration=.25):
     for i in range(blinks):
-        print("{}".format("|" if RXpin.read_pin() else "."),end="")
+        print("{}".format("|" if RXpin.read_pin() else "."),end="\n")
 
 if __name__ == "__main__":   
             
