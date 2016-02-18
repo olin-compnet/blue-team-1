@@ -5,6 +5,8 @@ from MorseTX import MorseTX
 from SetPin import SetPin
 import time
 
+hertz = 4
+
 class BlinkTX(SetPin):
     def __init__(self,headerpin,BCM,direction="TX"):
         if direction != "TX":
@@ -16,7 +18,7 @@ class BlinkTX(SetPin):
     def blinkTX(self,state,duration):
         print(state,duration)
         self.turn_high() if state else self.turn_low()
-        time.sleep(duration)      
+        time.sleep(duration/hertz)
 
 if __name__ == "__main__":
     import random
@@ -40,7 +42,3 @@ if __name__ == "__main__":
                 break
             else:
                 blink(MorseTX(msg.upper()))
-                
-        
-    
-    
