@@ -27,7 +27,7 @@ DIT_MIN_DUR  = DIT_DUR * (DIT_SCALE    + 0            ) * 0.5
 DIT_MAX_DUR  = DIT_DUR * (DIT_SCALE    + DAH_SCALE    ) * 0.5
 
 EL_MIN_DUR   = DIT_DUR * (EL_SCALE     + 0            ) * 0.5 # Threshold to see Element separator (lower end)
-EL_MAX_DUR   = DIT_DUR * (EL_SCALE     + LETTER_SCALE ) * 0.5 # Threshold to see 
+EL_MAX_DUR   = DIT_DUR * (EL_SCALE     + LETTER_SCALE ) * 0.5 # Threshold to see
 CHAR_MAX_DUR = DIT_DUR * (LETTER_SCALE + WORD_SCALE   ) * 0.5
 WORD_MAX_DUR = DIT_DUR * (WORD_SCALE   + EOM_SCALE    ) * 0.5
 
@@ -47,7 +47,7 @@ SYMBOLS_2_CHAR = {
 }
 
 DIT = '.'
-DAH = DAH
+DAH = '-'
 CHAR_SEPARATOR = '#'
 WORD_SEPARATOR = ' '
 EOM = '\n'
@@ -102,25 +102,25 @@ def read_pin():
 #                 break
 #         else:
 #             if state_is_high:
-#                 if consecutive_read < DAH_SCALE: # Counts of 
+#                 if consecutive_read < DAH_SCALE: # Counts of
 #                     yield DIT
 #                 else:
 #                     yield DAH
 #             else:
 #                 # Smaller than LETTER_SCALE Therefore element separator
-#                 if consecutive_read < LETTER_SCALE: 
+#                 if consecutive_read < LETTER_SCALE:
 #                     pass
 #                 # Smaller than WORD_SCALE, therefore letter separator
-#                 elif consecutive_read < WORD_SCALE: 
+#                 elif consecutive_read < WORD_SCALE:
 #                     yield CHAR_SEPARATOR
 #                 # Smaller than EOM_SCALE, therefore word separator
-#                 elif consecutive_read < EOM_SCALE: 
+#                 elif consecutive_read < EOM_SCALE:
 #                     yield WORD_SEPARATOR
 #                 # As big as EOM_SCALE or bigger, probably means we're done with this message
 #                 else:
 #                     yield EOM
 #                     break
-            
+
 #             # Flip state
 #             state_is_high = not state_is_high
 #             consecutive_read = 1
@@ -290,7 +290,7 @@ def idle():
     while not read_pin():
         pass
 
-def receive_morse(RXpin,):  
+def receive_morse(RXpin,):
     # End Of Message: .-.-. ***deprecated
     """
     demo receiving
@@ -319,5 +319,6 @@ def receive_morse(RXpin,):
     #     print()
 
 
-if __name__ == "__main__":   
-    receive_morse()
+if __name__ == "__main__":
+    for msg in receive_morse():
+        print(msg)
