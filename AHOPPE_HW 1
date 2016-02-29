@@ -1,0 +1,28 @@
+Alexander Hoppe
+alexander.hoppe@students.olin.edu
+Compnet Assignment 1
+
+1.
+def getUnicodeNameCharSet():
+	charset = set()
+	for character in range(0x110000):
+		name = unicodedata.name(chr(character), "*NSN*")
+		for idx in name:
+			charset.add(idx)
+	return(charset)
+
+2.
+The IDLE shell can print most of the letters and symbols that are in languages, but it cannot print most of the symbols with the name *NSN*. Various syllabic languages are not rendered, but the primary world languages seem to render just fine. 
+
+3.
+def UTF8_encode(arg):
+	output = list()
+	for char in arg:
+		output.append(ord(char))
+	return bytes(output)
+
+def UTF8_decode(arg):
+	output = ''
+	for i in arg:
+		output += chr(i)
+	return(output)
