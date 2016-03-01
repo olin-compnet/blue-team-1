@@ -9,7 +9,7 @@ from queue import Queue
 
 symbol_q = Queue(100)
 
-DIT_DUR = 0.1 # seconds
+DIT_DUR = 0.01 # seconds
 
 SAMPLES_PER_DIT = 10
 THRESHOLD = SAMPLES_PER_DIT / 2
@@ -277,7 +277,7 @@ def read_chars():
 def process():
     for char in read_chars():
         print(char, end="", flush=True)
-    print("\nPROCESS DONE")
+    print("\n")
 
 def idle():
     '''
@@ -304,7 +304,7 @@ def receive_morse():
             read_char_thread.start()
             read_symbol_thread.join()
             read_char_thread.join()
-            print("DONE")
+            # print("DONE")
 
 
     # while True:
