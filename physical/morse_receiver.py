@@ -127,6 +127,7 @@ def read_pin(RXpin):
 
 # Version 2 of read_symbol
 def read_symbol(RXpin):
+    idle()
     last_time = time.time()
     while True:
         state_is_high = read_pin(RXpin)
@@ -266,17 +267,12 @@ def read_chars():
 
             elif symbol == WORD_SEPARATOR:
                 yield " "
+            elif symbol == EOM:
+                return '\n'
 
             symbols = "" # Reset symbols
 
         symbol = symbol_q.get()
-
-    if symbols in SYMBOLS_2_CHAR:
-        yield SYMBOLS_2_CHAR[symbols]
-    else:
-        yield symbols
-    yield EOM
-    # print("END OF MESSAGE")
 
 def process():
     for char in read_chars():
@@ -302,10 +298,8 @@ def receive_morse():
     with SetPin(16,"GPIO_23",direction="RX") as RXpin:
         #wait for signal
         while True:
-            idle()
             read_symbol_thread = threading.Thread(target=read_symbol, name="SymbolMaker", args=(RXpin,))
             read_char_thread = threading.Thread(target=process, name="SymbolProcessor")
-
             read_symbol_thread.start()
             read_char_thread.start()
             read_symbol_thread.join()
