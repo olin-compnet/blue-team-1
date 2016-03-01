@@ -9,7 +9,7 @@ from queue import Queue
 
 symbol_q = Queue(100)
 
-DIT_DUR = 1 # seconds
+DIT_DUR = 0.1 # seconds
 
 SAMPLES_PER_DIT = 10
 THRESHOLD = SAMPLES_PER_DIT / 2
@@ -52,7 +52,7 @@ CHAR_SEPARATOR = '#'
 WORD_SEPARATOR = ' '
 EOM = '\n'
 
-def read_pin():
+def read_pin(RXpin):
     return 1 if RXpin.read_pin() else 0
 
 # yields True if high unit, else False
@@ -126,11 +126,11 @@ def read_pin():
 #             consecutive_read = 1
 
 # Version 2 of read_symbol
-def read_symbol():
+def read_symbol(RXpin):
     last_time = time.time()
     while True:
-        state_is_high = read_pin()
-        while state_is_high == read_pin() and time.time() - last_time < DIT_DUR * EOM_SCALE:
+        state_is_high = read_pin(RXpin)
+        while state_is_high == read_pin(RXpin) and time.time() - last_time < DIT_DUR * EOM_SCALE:
             time.sleep(SAMPLE_PERIOD) # Artifically slowing down reads so that we don't do a bajillion comparisons w/o reason
 
         end_time = time.time()
@@ -287,10 +287,10 @@ def idle():
     '''
     Does nothing until the pin reads something positive
     '''
-    while not read_pin():
+    while not read_pin(RXpin):
         pass
 
-def receive_morse(RXpin,):
+def receive_morse():
     # End Of Message: .-.-. ***deprecated
     """
     demo receiving
@@ -298,17 +298,19 @@ def receive_morse(RXpin,):
     for i in range(blinks):
             print("|{}".format("==" if  RXpin.read_pin() else ""))
     """
-    #wait for signal
-    while True:
-        idle()
-        read_symbol_thread = threading.Thread(target=read_symbol, name="SymbolMaker")
-        process_thread = threading.Thread(target=process, name="SymbolProcessor")
+    global RXpin
+    with SetPin(16,"GPIO_23",direction="RX") as RXpin:
+        #wait for signal
+        while True:
+            idle()
+            read_symbol_thread = threading.Thread(target=read_symbol, name="SymbolMaker", args=(RXpin,))
+            read_char_thread = threading.Thread(target=process, name="SymbolProcessor")
 
-        read_symbol_thread.start()
-        read_char_thread.start()
-        read_symbol_thread.join()
-        read_char_thread.join()
-        print("DONE")
+            read_symbol_thread.start()
+            read_char_thread.start()
+            read_symbol_thread.join()
+            read_char_thread.join()
+            print("DONE")
 
 
     # while True:
