@@ -50,7 +50,7 @@ WALW-IAN, to roll, to wallow." --RICHARDSON'S DICTIONARY
      PEKEE-NUEE-NUEE,     FEGEE.
      PEHEE-NUEE-NUEE,     ERROMANGOAN.
 '''
-   
+
 ,
 
 
@@ -111,7 +111,7 @@ be hoary." --JOB.'''
 
 
 
-   
+
 
 '''"There go the ships; there is that Leviathan whom thou hast made to play
 therein." --PSALMS.'''
@@ -364,7 +364,7 @@ whales spouting and sporting with each other, when one observed:
 there--pointing to the sea--is a green pasture where our children's
 grand-children will go for bread." --OBED MACY'S HISTORY OF NANTUCKET.
 ''',
-   
+
 '''"I built a cottage for Susan and myself and made a gateway in the form
 of a Gothic Arch, by setting up a whale's jaw bones." --HAWTHORNE'S
 TWICE TOLD TALES.
@@ -503,13 +503,13 @@ WHALE FISHERMAN.
 manage a powerful unbroken colt, with the mere appliance of a rope tied
 to the root of his tail." --A CHAPTER ON WHALING IN RIBS AND TRUCKS.
 ''',
-   
+
 '''"On one occasion I saw two of these monsters (whales) probably male and
 female, slowly swimming, one after the other, within less than a stone's
 throw of the shore" (Terra Del Fuego), "over which the beech tree
 extended its branches." --DARWIN'S VOYAGE OF A NATURALIST.
 ''',
-   
+
 '''"'Stern all!' exclaimed the mate, as upon turning his head, he saw the
 distended jaws of a large Sperm Whale close to the head of the boat,
 threatening it with instant destruction;--'Stern all, for your lives!'"

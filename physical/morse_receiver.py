@@ -9,7 +9,7 @@ from queue import Queue
 
 symbol_q = Queue(100)
 
-DIT_DUR = 0.01 # seconds
+DIT_DUR = 0.001 # seconds
 
 SAMPLES_PER_DIT = 10
 THRESHOLD = SAMPLES_PER_DIT / 2

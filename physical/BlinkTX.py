@@ -5,7 +5,7 @@ from MorseTX import MorseTX
 from SetPin import SetPin
 import time
 
-DIT_DUR = 0.01
+DIT_DUR = 0.001
 
 class BlinkTX(SetPin):
     def __init__(self,headerpin,BCM,direction="TX"):
