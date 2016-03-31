@@ -78,6 +78,7 @@ EOM = '\n'
 
 def read_pin(RXpin):
     return 1 if RXpin.read_pin() else 0
+    
 if __name__ == "__main__":
     import random
     import mobydickquotes

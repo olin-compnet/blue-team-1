@@ -18,7 +18,7 @@ class SetPin:
         GPIO.setmode(GPIO.BOARD)  # use Pi Header numbers
 
         if self.direction == "RX":
-            GPIO.setup(self.headerpin,GPIO.IN)  # allow pin to read 3.3v and 0v levels
+            GPIO.setup(self.headerpin,GPIO.IN,pull_up_down=GPIO.PUD_DOWN)  # allow pin to read 3.3v and 0v levels
         elif self.direction == "TX":
             GPIO.setup(self.headerpin,GPIO.OUT) # allow pin to set 3.3v and 0v levels
 

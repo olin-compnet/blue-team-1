@@ -24,7 +24,7 @@ WORD_SCALE   = 7
 EOM_SCALE    = 10
 
 DIT_MIN_DUR  = DIT_DUR * (DIT_SCALE    + 0            ) * 0.5
-DIT_MAX_DUR  = DIT_DUR * (DIT_SCALE    + DAH_SCALE    ) * 0.5
+DIT_MAX_DUR  = DIT_DUR * (DIT_SCALE    + DAH_SCALE    ) * 0.5 #Ask Mitchell
 
 EL_MIN_DUR   = DIT_DUR * (EL_SCALE     + 0            ) * 0.5 # Threshold to see Element separator (lower end)
 EL_MAX_DUR   = DIT_DUR * (EL_SCALE     + LETTER_SCALE ) * 0.5 # Threshold to see
